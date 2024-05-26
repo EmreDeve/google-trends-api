@@ -1,6 +1,7 @@
 import express from 'express'
-import { get_realtime } from '../examples.js';
+import pkg from '../examples.js';
 
+const { get_realtime } = pkg;
 const app = express()
 
 app.get('/realtime', async (req, res) => {
