@@ -1,5 +1,5 @@
-import express from 'express'
-import { get_realtime } from '../examples.js';
+const express = require('express');
+const { get_realtime } = require('../examples.js');
 
 const app = express()
 
