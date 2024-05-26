@@ -1,6 +1,6 @@
 'use strict';
 
-// var googleTrends = require('./lib/google-trends-api.min.js');
+var googleTrends = require('./lib/google-trends-api.min.js');
 
 /* ******************* Autocomplete **************************/
 
@@ -106,14 +106,21 @@
 //   console.log(err);
 // });
 
-/* ************************* RealTime Trending Searches  ******************/
-// googleTrends.realTimeTrends({
-//   geo: 'US',
-//   category: 'all',
-// }, function(err, results) {
-//    if (err) console.log('oh no error!', err);
-//    else console.log(results);
-// });
+
+export function get_realtime(geo, category) {
+    return new Promise((resolve, reject) => {
+        googleTrends.realTimeTrends({
+            geo: geo,
+            category: category,
+        }, function(err, results) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(results);
+            }
+        });
+    });
+}
 
 /* ***********************  Daily Trends *******************************/
 // Please note that google only keeps around T-15 days of daily trends information.
