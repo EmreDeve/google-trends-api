@@ -1,3 +1,5 @@
+const app = express()
+
 app.get('/poll', async (req, res) => {
     console.log("heart beat")
     return res.json({
