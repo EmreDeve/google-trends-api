@@ -137,3 +137,5 @@ export function get_realtime(geo, category) {
 //      console.log(results);
 //    }
 // }); 
+
+module.exports = { get_realtime };

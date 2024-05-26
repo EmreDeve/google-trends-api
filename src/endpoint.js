@@ -1,6 +1,6 @@
 import express from 'express'
-import pkg from '../examples.js';
 
+const pkg = require('../examples.js');
 const { get_realtime } = pkg;
 const app = express()
 
