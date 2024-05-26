@@ -107,7 +107,7 @@ var googleTrends = require('./lib/google-trends-api.min.js');
 // });
 
 
-export function get_realtime(geo, category) {
+function get_realtime(geo, category) {
     return new Promise((resolve, reject) => {
         googleTrends.realTimeTrends({
             geo: geo,
