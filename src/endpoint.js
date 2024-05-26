@@ -1,13 +1,14 @@
 import express from 'express'
+import googleTrends from '../lib/google-trends-api.min.js';
 
 const app = express()
-var googleTrends = require('../lib/google-trends-api.min.js');
+var gt = googleTrends()
 
 app.get('/realtime', async (req, res) => {
   const geo = req.query.geo
   const category = req.query.category
 
-  googleTrends.realTimeTrends({
+  gt.realTimeTrends({
       geo: geo,
       category: category,
     }, function(err, results) {
