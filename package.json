@@ -63,7 +63,6 @@
     "nyc": "^10.1.2",
     "pre-commit": "^1.2.2",
     "webpack": "1.12.9",
-    "yargs": "3.32.0",
-    "express": "latest"
+    "yargs": "3.32.0"
   }
 }

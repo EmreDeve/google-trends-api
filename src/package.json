@@ -1,0 +1,13 @@
+{
+    "name": "google-trends-api",
+    "version": "4.9.2",
+    "main": "endpoint.js",
+    "type": "module",
+    "scripts": {
+      "start": "node endpoint.js"
+    },
+    "dependencies": {
+      "express": "latest"
+    }
+  }
+  
