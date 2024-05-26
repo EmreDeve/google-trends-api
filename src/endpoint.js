@@ -1,5 +1,6 @@
 import express from 'express';
-const { get_realtime } = require('../examples.js');
+
+var googleTrends = require('../lib/google-trends-api.min.js');
 
 const app = express()
 
@@ -7,17 +8,21 @@ app.get('/realtime', async (req, res) => {
   const geo = req.query.geo
   const category = req.query.category
 
-  try {
-    const results = await get_realtime('US', 'all');
-    return res.json({
-      error: 0,
-      results: results
+  googleTrends.realTimeTrends({
+    geo: geo,
+    category: category,
+    }, function(err, results) {
+      if (err) {
+        return res.json({
+          error: 1
+        })
+      } else {
+        return res.json({
+          error: 0,
+          results: results
+        })
+      }
     })
-  } catch (err) {
-      return res.json({
-        error: 1
-      })
-  }
 })
 
 app.get('/poll', async (req, res) => {
