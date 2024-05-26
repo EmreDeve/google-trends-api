@@ -1,6 +1,5 @@
 import express from 'express';
-
-var googleTrends = require('../lib/google-trends-api.min.js');
+import googleTrends from '../lib/google-trends-api.min.js';
 
 const app = express()
 
