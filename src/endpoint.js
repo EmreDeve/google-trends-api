@@ -4,10 +4,10 @@ import googleTrends from '../lib/google-trends-api.min.js';
 const app = express()
 
 app.get('/realtime', async (req, res) => {
+  try {
   const geo = req.query.geo
   const category = req.query.category
 
-  try {
     googleTrends.realTimeTrends({
       geo: geo,
       category: category,
