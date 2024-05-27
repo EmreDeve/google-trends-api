@@ -7,24 +7,25 @@ app.get('/realtime', async (req, res) => {
   const geo = req.query.geo
   const category = req.query.category
 
+  if (!geo || !category){
+    return res.json({
+      error: 0,
+      results: results
+    })
+  }
+
   googleTrends.realTimeTrends({
     geo: geo,
     category: category,
     }, function(err, results) {
-      try {
-        if (err) {
-          return res.json({
-            error: 1
-          })
-        } else {
-          return res.json({
-            error: 0,
-            results: results
-          })
-        }
-      } catch (error) {
+      if (err) {
         return res.json({
           error: 1
+        })
+      } else {
+        return res.json({
+          error: 0,
+          results: results
         })
       }
     })
