@@ -9,8 +9,7 @@ app.get('/realtime', async (req, res) => {
 
   if (!geo || !category){
     return res.json({
-      error: 0,
-      results: results
+      error: 1
     })
   }
 
