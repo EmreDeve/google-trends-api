@@ -14,6 +14,8 @@ app.get('/realtime', async (req, res) => {
     })
   }
 
+  console.log(`Getting Trends with geo: ${geo}, category: ${category}`)
+
   googleTrends.realTimeTrends({
     geo: geo,
     category: category,
@@ -24,6 +26,7 @@ app.get('/realtime', async (req, res) => {
           msg: "some error happen."
         })
       } else {
+        console.log(`Success getting Trends with geo: ${geo}, category: ${category}`)
         return res.json({
           error: 0,
           results: results
