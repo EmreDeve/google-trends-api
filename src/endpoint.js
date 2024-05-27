@@ -7,21 +7,27 @@ app.get('/realtime', async (req, res) => {
   const geo = req.query.geo
   const category = req.query.category
 
-  googleTrends.realTimeTrends({
-    geo: geo,
-    category: category,
-    }, function(err, results) {
-      if (err) {
-        return res.json({
-          error: 1
-        })
-      } else {
-        return res.json({
-          error: 0,
-          results: results
-        })
-      }
+  try {
+    googleTrends.realTimeTrends({
+      geo: geo,
+      category: category,
+      }, function(err, results) {
+        if (err) {
+          return res.json({
+            error: 1
+          })
+        } else {
+          return res.json({
+            error: 0,
+            results: results
+          })
+        }
+      })
+  } catch (err) {
+    return res.json({
+      error: 1
     })
+  }
 })
 
 app.get('/poll', async (req, res) => {
