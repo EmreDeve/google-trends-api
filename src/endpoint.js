@@ -9,7 +9,8 @@ app.get('/realtime', async (req, res) => {
 
   if (!geo || !category){
     return res.json({
-      error: 1
+      error: 1,
+      msg: "geo or category is missing."
     })
   }
 
@@ -19,7 +20,8 @@ app.get('/realtime', async (req, res) => {
     }, function(err, results) {
       if (err) {
         return res.json({
-          error: 1
+          error: 1,
+          msg: "some error happen."
         })
       } else {
         return res.json({
